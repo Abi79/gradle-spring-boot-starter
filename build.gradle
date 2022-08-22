@@ -1,8 +1,9 @@
 plugins {
-    id 'org.springframework.boot' version '2.6.2'
-    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
-    id 'application'
-    id 'idea'
+    id 'org.springframework.boot' version '2.7.3' // https://docs.spring.io/spring-boot/docs/current/gradle-plugin/reference/htmlsingle/
+    id 'io.spring.dependency-management' version '1.0.13.RELEASE' // https://docs.spring.io/dependency-management-plugin/docs/current-SNAPSHOT/reference/html/
+    id 'application' // https://docs.gradle.org/current/userguide/application_plugin.html
+    id 'java' // https://docs.gradle.org/current/userguide/java_plugin.html
+    id 'idea' // https://docs.gradle.org/current/userguide/idea_plugin.html
 }
 
 group 'com.albertiordache'
@@ -32,7 +33,7 @@ configurations {
     }
 }
 
-final lombokVersion = '1.18.22'
+final lombokVersion = '1.18.24'
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter'
@@ -46,7 +47,7 @@ dependencies {
     testCompileOnly "org.projectlombok:lombok:${lombokVersion}"
     testAnnotationProcessor "org.projectlombok:lombok:${lombokVersion}"
 
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
 }
 
