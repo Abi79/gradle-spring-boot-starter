@@ -1,6 +1,11 @@
+buildscript {
+    ext {
+        springBootVersion = '3.0.5'
+    }
+}
+
 plugins {
-    id 'org.springframework.boot' version '2.7.3' // https://docs.spring.io/spring-boot/docs/current/gradle-plugin/reference/htmlsingle/
-    id 'io.spring.dependency-management' version '1.0.13.RELEASE' // https://docs.spring.io/dependency-management-plugin/docs/current-SNAPSHOT/reference/html/
+    id 'org.springframework.boot' version "${springBootVersion}" // https://docs.spring.io/spring-boot/docs/current/gradle-plugin/reference/htmlsingle/
     id 'application' // https://docs.gradle.org/current/userguide/application_plugin.html
     id 'java' // https://docs.gradle.org/current/userguide/java_plugin.html
     id 'idea' // https://docs.gradle.org/current/userguide/idea_plugin.html
@@ -33,11 +38,13 @@ configurations {
     }
 }
 
-final lombokVersion = '1.18.24'
+final lombokVersion = '1.18.26'
 
 dependencies {
+    implementation platform("org.springframework.boot:spring-boot-dependencies:${springBootVersion}")
+
     implementation 'org.springframework.boot:spring-boot-starter'
-    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-web' // or webflux
 
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
 
